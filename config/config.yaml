@@ -1,0 +1,38 @@
+data:
+  batch_size: 32
+  cache_dir: /home/srajan/Data/Datasets_ATML_Projects/preprocessed_cache
+  dataset_path: /home/srajan/Data/Datasets_ATML_Projects/
+  image_size:
+  - 224
+  - 224
+  num_workers: 24
+  test_csv: test_processed.csv
+  train_csv: train_processed.csv
+  use_augmentation: false
+  use_cache: true
+  valid_csv: valid_processed.csv
+loss:
+  type: contrastive
+meta:
+  adapt_steps: 5
+  algorithm: maml
+  inner_lr: 0.01
+  meta_lr: 0.001
+  shots: 7
+  tasks_per_batch: 1
+optimizer:
+  lr: 0.001
+  name: adam
+  weight_decay: 0.0001
+siamese:
+  backbone: resnet50
+  distance_metric: cosine
+  embedding_dim: 256
+  margin: 1.0
+  pretrained: true
+training:
+  early_stopping_patience: 10
+  log_interval: 1000
+  meta_episodes: 5000
+  save_dir: checkpoints
+  siamese_epochs: 50
